@@ -27,7 +27,9 @@ export default function LoginPage() {
     if (res.ok) {
       Cookies.set("token", data.token); // ⬅️ HARUS ADA ini
       localStorage.setItem("token", data.token);
-      router.push("/dashboard");
+      router.push("/dashboard"); // Arahkan ke dashboard setelah login berhasil
+    } else {
+      setError(data.message || "An error occurred");
     }
 
     setLoading(false);
