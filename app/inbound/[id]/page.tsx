@@ -1,25 +1,20 @@
-export default function InboundDetailPage({ params }: { params: { id: string } }) {
-  const inbound = {
-    id: params.id,
-    code: `IN-00${params.id}`,
-    supplier: "Supplier A",
-    date: "2025-04-20",
+// app/inbound/[id]/page.tsx
+
+interface InboundPageProps {
+  params: {
+    id: string;
   };
+}
+
+const InboundPage = ({ params }: InboundPageProps) => {
+  const { id } = params; // Access the dynamic parameter
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Inbound Detail</h1>
-      <div className="space-y-2">
-        <div>
-          <strong>Code:</strong> {inbound.code}
-        </div>
-        <div>
-          <strong>Supplier:</strong> {inbound.supplier}
-        </div>
-        <div>
-          <strong>Date:</strong> {inbound.date}
-        </div>
-      </div>
+      <h1>Inbound Page</h1>
+      <p>Inbound ID: {id}</p>
     </div>
   );
-}
+};
+
+export default InboundPage;
