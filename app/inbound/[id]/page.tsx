@@ -1,13 +1,13 @@
 // app/inbound/[id]/page.tsx
 
 interface InboundPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-const InboundPage = ({ params }: InboundPageProps) => {
-  const { id } = params; // Access the dynamic parameter
+const InboundPage = async ({ params }: InboundPageProps) => {
+  const { id } = await params; // Await the params before accessing 'id'
 
   return (
     <div>
